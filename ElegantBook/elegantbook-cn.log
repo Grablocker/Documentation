@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.19)  25 JUL 2025 10:52
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.19)  26 JUL 2025 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1290,6 +1290,9 @@ LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
 LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
 )
 \openout1 = `elegantbook-cn.aux'.
 
@@ -1444,15 +1447,17 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 32.
- (./elegantbook-cn.toc)
+ (./elegantbook-cn.toc [1
+
+
+
+])
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
 
- [1
-
-
-
-]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 34.
+ [2]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 7.0pt on input line 39.
@@ -1460,56 +1465,62 @@ LaTeX Font Info:    Trying to load font information for U+ding on input line 39.
 (d:/Apps/texlive/2024/texmf-dist/tex/latex/bbding/Uding.fd
 File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 )
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[1
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 85.
+ [1
 
 
-]
+] [2]
 Chapter 2.
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[2
+[3
 
 ]
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 190.
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 214.
-[3]
+[4]
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[4] [5]
+[5] [6]
 Chapter 3.
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[6
-
-] [7]
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[8]
-Chapter 4.
-[9
+[7
 
 ]
-Chapter 5.
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[8]
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[9]
+Chapter 4.
 [10
 
 ]
-Chapter 6.
+Chapter 5.
 [11
 
-] (./elegantbook-cn.aux)
+]
+Chapter 6.
+[12
+
+]
+Overfull \hbox (25.55313pt too wide) in paragraph at lines 521--521
+[]\TU/lmtt/m/n/10 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"[] 
+ []
+
+
+Overfull \hbox (36.05313pt too wide) in paragraph at lines 529--529
+[]\TU/lmtt/m/n/10 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin[] 
+ []
+
+[13] [14] (./elegantbook-cn.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1519,18 +1530,18 @@ L3 programming layer <2022/08/05>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 4F17702EDCA92474456DBC6FF874B9C2;5242.
+(rerunfilecheck)             Checksum: 7AC4CF72EF6BE95485DF55E99F44479F;6992.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45794 strings out of 476615
- 989043 string characters out of 5796003
- 1974669 words of memory out of 5000000
- 67090 multiletter control sequences out of 15000+600000
- 563054 words of font info for 93 fonts, out of 8000000 for 9000
+ 45843 strings out of 476615
+ 990535 string characters out of 5796003
+ 1976520 words of memory out of 5000000
+ 67128 multiletter control sequences out of 15000+600000
+ 563102 words of font info for 99 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  103i,12n,108p,683b,1317s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on elegantbook-cn.pdf (13 pages).
+Output written on elegantbook-cn.pdf (17 pages).

@@ -3,7 +3,7 @@
 \title{智弈锋穹--AI驱动的攻防自治演训靶场}
 \subtitle{项目文档}
 
-\author{Ethan Deng \& Liam Huang}
+\author{网安院十个人}
 \bioinfo{指导老师}{张立强、何艺、严飞}
 \institute{武汉大学 国家网络安全学院}
 \date{2025年8月14日}
@@ -37,7 +37,7 @@
 \chapter{项目背景和概述}
 \begin{introduction}
     \item 赛题背景
-    \item 知识背景
+    \item 基本知识背景
 \end{introduction}
 
 \section{赛题背景}
@@ -80,28 +80,81 @@
 防御策略的自适应优化以及评估体系的全面量化，
 从根本上提升攻防演练的实效性与科学性，推动网络安全实战能力建设迈上新台阶。
 
-\section{知识背景}
-攻击防御评价系统是一款聚焦网络安全演练与评估的综合性平台，
-旨在通过数字化手段构建 “环境搭建 - 攻击模拟 - 防御检测 - 
-结果评估” 的全流程闭环。​
+\section{基本知识背景}
 
-系统采用 “前端可视化交互 + 后端逻辑控制” 
-的架构设计：前端依托预设框架与大模型生成能力，
-实现动态网络拓扑展示、攻击防御流程可视化；
-后端基于 virsh技术 编排VM虚拟机和docker，
-支撑容器化部署、网络拓扑构建及国产化平台（如鲲鹏）兼容，为演练提供灵活稳定的底层环境。​
+\subsection{KVM虚拟机}
 
-核心功能模块涵盖攻击与防御两大体系：
-攻击模块集成 exploitDB 漏洞数据库及 Metasploit 等攻击工具，
-实现漏洞信息自动获取与攻击路径模拟；防御模块通过日志审计、
-LLM-judge 检测及独立日志分析模块，
-精准识别攻击行为。两者协同配合，
-结合SDN网络技术与Agent log自动化评估引擎，
-最终为用户提供可量化的攻击防御效果评估报告。​
+KVM是一种内建于Linux内核的虚拟化技术，
+它将Linux操作系统转变为一个完整的Type-1虚拟化管理程序。
+KVM依赖硬件虚拟化扩展（如Intel VT或AMD-V）来为每个虚拟机提供
+独立的虚拟CPU和内存资源，并通过QEMU作为后端模拟设备和系统行为，
+从而运行不同操作系统的虚拟实例。每台虚拟机以普通进程的形式运行在宿主机上，
+由内核模块kvm.ko管理其特权指令的捕获与转发。KVM虚拟机具备高性能和低开销的特点，
+支持资源动态分配、快照保存、虚拟网络构建等功能，适合用于构建多租户的复杂网络环境。
+通过Libvirt工具集与Virt-Manager图形界面，
+用户可以以更直观和统一的方式对虚拟机生命周期进行管理，
+显著简化了大规模虚拟基础设施的运维难度。
 
-项目通过容器化、国产化适配、AI 驱动等技术创新，
-解决传统演练中场景单一、评估主观等问题，
-为网络安全防护提供高仿真、高效率的演练平台，助力提升安全防护能力。
+\subsection{Docker容器}
+
+Docker是一种轻量级虚拟化技术，
+它通过操作系统级别的内核功能如命名空间和控制组来实现对进程的隔离与资源限制。
+容器运行在共享内核的宿主机上，但对每个容器而言，它拥有独立的文件系统、网络堆栈
+与进程空间。Docker镜像作为容器的模板，以分层文件系统构建，支持快速部署与复用，
+显著提升了环境一致性和服务交付效率。
+相较于虚拟机，容器启动速度更快、占用资源更少，更适合部署短周期、可弹性伸缩的服务。
+在靶场环境中，Docker通常用于承载Web服务、数据库、日志分析平台等高频变化的组件，
+通过Docker Compose工具可实现多容器服务的集中编排，提升整体自动化部署水平。
+
+\subsection{靶场建构及其自动化}
+
+靶场系统通过KVM虚拟化技术构建多个相互隔离但逻辑互通的虚拟网络，
+旨在还原现实企业网络的典型结构与安全边界。系统整体以宿主机为核心，
+借助网络编排规则和NAT功能对不同区域的流量进行统一调度和安全控制，
+形成了完整的攻防演练环境。
+
+外部攻击流量首先从互联网进入宿主机的物理网卡（如eth0），
+宿主机通过配置DNAT规则将特定端口的流量重定向至虚拟网络net-ext中的跳板机或VPN服务器。
+net-ext充当外部网络的模拟区域，其内主机可借助宿主机NAT访问真实互联网，
+具备基础的对外通信能力。
+
+处于安全缓冲区位置的net-dmz网络承担DMZ区域职能，
+部署有Web服务器与邮件服务器等对外服务资产。
+这些主机通过宿主机的网络编排规则接受来自net-ext的受控流量，
+同时具备访问内部网络数据库的权限。DMZ区域的配置兼顾开放性与安全性，
+是攻击链中的核心跳板节点之一。
+
+net-int网络模拟企业内部办公网，
+主要部署PC终端、数据库服务器及业务支撑服务。该区域强调防护强度，仅允许向外发送请求，
+拒绝绝大多数来自外部与DMZ区域的主动连接，内部主机仅接受来自DMZ内特定主机的数据库访问请求。
+net-int作为攻击链的最终目标区域，其安全策略最为严格。
+
+net-mgmt为管理专用网络，部署KVM管理节点、日志分析平台、安全监控系统等支撑资产。
+该网络通过带外方式管理其他所有网络中的主机与容器，不参与业务流量传输，
+与其它区域完全逻辑隔离。net-mgmt的存在确保了运维操作的独立性与安全性，
+是演练过程中分析与干预的关键通道。
+
+上述各网络间通过宿主机实现隔离与流量控制，同时具备有限的、策略可控的访问路径。
+这种多层级、区分角色的网络架构能够精细复现企业级生产网络的安全边界与访问关系，
+为红队攻击链设计、蓝队监控部署以及后期行为分析提供可信、可控、可观测的环境支持。
+
+
+\subsection{AI Agent}
+
+AI Agent是一种具备感知、决策与执行能力的自主体，
+用于模拟人类在特定任务下的操作行为。
+在攻防演练中，Agent通过持续感知环境变化、分析目标系统特征、
+结合既有知识进行推理并最终发起攻击或防御行为，体现出智能化对抗的动态性和自适应性。
+
+一个典型的Agent包括感知模块、知识表示模块、策略生成模块和行为执行模块，
+其运行过程涉及对目标资产的信息采集、漏洞推理、攻击路径生成和自动化利用。
+随着大模型技术的发展，Agent逐渐具备了更强的自然语言理解能力与代码生成能力，
+能够从文档、漏洞数据库中抽取并构建攻击利用逻辑。
+
+在本项目中，我们使用了Gemini CLI构建攻防Agent，借助其集成的上下文感知机制、
+多模态输入解析能力和代码生成能力，完成对渗透链条的智能模拟与自动攻击脚本的生成，
+探索了基于大模型驱动的Agent在靶场环境中的实战应用潜力。
+
 
 \chapter{项目设计思路与方案}
 \begin{introduction}
@@ -171,7 +224,6 @@ LLM-judge 检测及独立日志分析模块，
 
 \section{靶场基础设施设计方案}
 
-<待修改>
 
 后端设计以 “高可用、可扩展、国产化兼容” 为核心原则，通过容器化架构与国产化技术栈，支撑前端场景的动态运行与核心功能的实现。​
 
@@ -278,14 +330,13 @@ AI 检测层是防御核心，融合特征工程与深度学习模型（如 LSTM
 \end{definition}
 
 \chapter{方案实现}
-\section{方案目标}
-本方案旨在构建一个高度贴近真实企业内网场景的模拟终端靶场环境，
-为大模型在网络攻击与防御领域的效果测试提供专业、可靠的测试平台。
-该靶场环境将精心划分多个网络区域，其中业务区将模拟企业核心业务系统所在网段，
-包含 Web 服务器、应用服务器等关键设备，承载企业日常业务处理；
-电费区则聚焦于与电费管理相关的敏感数据存储与处理服务器，模拟企业内部的核心数据区域；内网网段则涵盖员工办公终端、内部通信设备等，构建出多层次、多维度的网络架构。通过这种细致的区域划分和场景模拟，不仅能满足大模型在攻击策略生成、防御机制优化等方面的测试需求，还能为安全研究人员提供一个实践演练的平台，助力提升网络安全防护能力。
+\begin{introduction}
+  \item 靶场环境构建及其自动化、参数调整
+  \item 第二个
+  \item 第三个
+\end{introduction}
 
-\section{靶场环境构建}
+\section{靶场环境构建及其自动化、参数调整}
 \subsection{虚拟机构建网络拓扑}
 虚拟机技术将作为构建靶场网络拓扑的核心支撑，
 借助 VMware、Docker 等成熟工具，搭建复杂且灵活的网络结构。
@@ -330,7 +381,7 @@ AI 检测层是防御核心，融合特征工程与深度学习模型（如 LSTM
 \subsection{攻击模拟实现}
 攻击模拟部分将充分复用去年开发的部分代码和工具，以降低开发成本、提高效率。重点聚焦于已知漏洞的复现和演示，避免投入过多精力开发复杂的新攻击链。在漏洞利用方面，选取简单、效果明显的攻击类型，如 Web 漏洞（包括 SQL 注入、XSS 跨站脚本、文件上传漏洞等）、参数注入（如命令注入、LDAP 注入等）。例如，在模拟 Web 应用场景中，通过复用漏洞扫描脚本和利用工具，对存在 SQL 注入漏洞的 Web 页面进行攻击，展示攻击者如何构造恶意 SQL 语句获取数据库中的敏感信息；针对存在参数注入漏洞的应用接口，演示如何注入恶意命令实现对服务器的远程控制。通过这些简单直观的攻击类型，清晰展示攻击效果，便于测试大模型在识别和防御此类攻击时的表现。
 
-\section{攻击评估与溯源}
+\section{靶场行为评估}
 \subsection{攻击评估实现}
 攻击评估将依托开源 Agent 项目，如 Gemini、Kerberos 等，构建全方位的评估体系。Gemini Agent 可部署在靶场环境的各主机节点上，实时监控主机的进程活动、文件操作、网络连接等行为；Kerberos 相关工具则可用于监控身份认证过程中的异常行为。为应对演示时可能出现的网络限制，项目将提前准备丰富的 POC（概念验证）和漏洞利用数据，包括各类漏洞的测试脚本、攻击流量样本等，存储在本地环境中，确保评估过程的顺利进行。​
 
@@ -342,6 +393,11 @@ AI 检测层是防御核心，融合特征工程与深度学习模型（如 LSTM
 考虑到项目的时间和资源限制，溯源功能将采取简化实现的方式。例如，先构建基础的流量日志和 IP 关联数据库，将攻击流量与对应的源 IP、目标 IP、攻击时间等信息进行关联存储，通过简单的查询工具即可查看攻击行为的基本溯源信息。后续将调研 ELK（Elasticsearch、Logstash、Kibana）栈等日志分析平台在溯源中的应用，逐步完善溯源功能，提高攻击溯源的精准度和效率。
 
 \chapter{创新与特色}
+\begin{introduction}
+  \item 一个创新
+  \item 一个特色
+\end{introduction}
+
 \section{攻防演练系统开发项目}
 \begin{itemize}
     \item \textbf{全流程攻防闭环设计：}创新性地构建了 “场景构建 - 攻击实施 - 防御响应 - 评估反馈” 的完整闭环体系，实现了攻防过程的全链条覆盖。通过前端展示与后端控制的架构拆分，既保证了用户交互的直观性，又确保了核心计算的稳定，使系统能满足教学、训练及竞赛等多种场景需求，为网络安全防护演练提供了一体化解决方案。
@@ -358,11 +414,143 @@ AI 检测层是防御核心，融合特征工程与深度学习模型（如 LSTM
     \item \textbf{多场景适配与动态调整：}靶场环境由多个网络区域组成，能模拟不同的企业内网场景。同时，在攻击模拟中可动态调整攻击难度，如漏洞利用成功率随机波动，在评估演练中能明确区分攻击者与正常用户行为，使靶场能适应不同的测试需求，提高了其适用性和实用性。
 \end{itemize}
 
+
 \chapter{项目总结和展望}
+\begin{introduction}
+  \item 一个总结
+  \item 一个展望
+\end{introduction}
 
 
+\chapter{部署说明和注意事项}
 
-\chapter{注意事项和部署说明}
+\begin{introduction}
+    \item 部署说明和开源项目地址
+    \item 宿主机部署前置工作
+    \item 靶场部署
+    \item 攻防模块部署
+    \item 注意事项
+\end{introduction}
+
+\section{部署说明和开源项目地址}
+
+\section{宿主机部署前置工作}
+
+为了构建一个高性能且稳定的KVM与Docker混合靶场环境，宿主机需要在硬件资源、操作系统支持和关键虚拟化组件等方面做好充分准备。以下从硬件配置、系统选择、虚拟化环境搭建和容器平台部署四个方面展开说明。
+
+\begin{proposition}
+建议使用基于amd64架构并支持硬件虚拟化的处理器，
+例如支持Intel VT-x或AMD-V的多核CPU，至少4个物理核心，
+以保障能够并发运行多个虚拟机和容器服务。内存方面最低为16 GB，
+推荐配置32 GB或以上内存。磁盘空间方面至少保留50 GB的可用空间，
+强烈建议选用SSD，以提供更高的I/O吞吐能力，便于高速运行。
+
+操作系统方面，选择支持上述架构的主流操作即可。本项目支持OpenEuler等国产开源操作系统。
+\end{proposition}
+
+
+\subsection{操作系统选择与配置}
+
+宿主机推荐安装Ubuntu Server的长期支持版本，例如Ubuntu 20.04或24.04，该系统对KVM与Docker支持良好，并拥有活跃的社区生态和丰富的文档资源。在部署前需检查并启用CPU的硬件虚拟化功能，可通过如下命令进行确认：
+
+
+\begin{verbatim}
+$ lscpu | grep -E 'vmx|svm'
+\end{verbatim}
+
+若输出结果中包含“vmx”或“svm”，则说明虚拟化功能已被CPU支持。如未显示，则需进入BIOS或UEFI设置手动开启虚拟化选项。
+
+\subsection{KVM及其管理工具安装}
+
+KVM是基于Linux内核的虚拟化机制，可将宿主机作为裸机虚拟化管理器运行多个虚拟机。Libvirt作为其管理工具集，提供统一的虚拟机配置与管理接口，支持命令行与图形化管理方式。Virt-Manager作为图形前端，便于对虚拟机状态进行可视化查看与控制。安装步骤如下：
+
+安装KVM及相关软件包：
+
+\begin{verbatim}
+$ sudo apt update
+$ sudo apt -y install bridge-utils cpu-checker libvirt-clients 
+$ sudo apt -y install libvirt-daemon qemu qemu-kvm virt-manager
+\end{verbatim}
+
+添加当前用户至libvirt与kvm用户组以获得管理权限：
+
+\begin{verbatim}
+$ sudo usermod -aG libvirt $USER
+$ sudo usermod -aG kvm $USER
+\end{verbatim}
+
+验证KVM模块是否加载成功：
+
+\begin{verbatim}
+$ kvm-ok
+\end{verbatim}
+
+若输出显示/dev/kvm存在并支持加速，即说明KVM功能正常。
+
+启动并设定libvirtd服务为开机自启：
+
+\begin{verbatim}
+$ sudo systemctl enable --now libvirtd
+\end{verbatim}
+
+Libvirt可用于创建虚拟网络、自动配置网桥与DHCP服务，并设置iptables规则，为后续部署多网段靶场提供良好的支持基础。
+
+\subsection{Docker及Compose平台安装}
+
+Docker平台将在靶场中承担Web服务、邮件系统、数据库与监控栈等容器化服务的部署任务，Docker Compose用于协调多容器服务的构建与编排。安装步骤如下：
+
+安装基础依赖：
+
+\begin{verbatim}
+$ sudo apt update
+$ sudo apt install ca-certificates curl gnupg
+\end{verbatim}
+
+添加Docker官方GPG密钥：
+
+\begin{verbatim}
+$ sudo install -m 0755 -d /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg
+$ sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+\end{verbatim}
+
+配置Docker软件源：
+
+\begin{verbatim}
+$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg]
+https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"
+| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+\end{verbatim}
+
+安装Docker及其组件：
+
+\begin{verbatim}
+$ sudo apt update
+$ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+\end{verbatim}
+
+添加用户至docker用户组：
+
+\begin{verbatim}
+$ sudo usermod -aG docker $USER
+\end{verbatim}
+
+完成安装后，可通过运行测试容器确认安装状态：
+
+\begin{verbatim}
+$ docker run hello-world
+\end{verbatim}
+
+若成功输出欢迎信息，说明Docker平台已正确配置完成。
+
+
+\section{靶场部署}
+
+
+\section{攻防模块部署}
+
+
+\section{注意事项}
 
 
 
