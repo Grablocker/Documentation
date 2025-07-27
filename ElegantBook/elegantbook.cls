@@ -99,7 +99,7 @@
 
 \ProcessKeyvalOptions*\relax
 % \ProcessOptions*\relax
-\LoadClass[a4paper,oneside]{book}
+\LoadClass[a4paper,oneside,12pt]{book}
 
 \RequirePackage{setspace}
 
@@ -159,7 +159,7 @@
 }{\relax}
 
 \setcounter{tocdepth}{1}
-\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.5}
 
 \PassOptionsToPackage{no-math}{fontspec}
 \PassOptionsToPackage{quiet}{fontspec}
@@ -389,7 +389,7 @@
   bibstyle=\ELEGANT@bibstyle]{biblatex}
 
 \ifdefstring{\ELEGANT@lang}{cn}{
-  \renewcommand{\baselinestretch}{1.3}
+  \renewcommand{\baselinestretch}{1.5}
   \renewcommand{\contentsname}{目录}
   \renewcommand{\figurename}{图}
   \renewcommand{\tablename}{表}

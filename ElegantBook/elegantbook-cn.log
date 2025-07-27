@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.19)  26 JUL 2025 16:18
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.10.19)  27 JUL 2025 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,8 +23,8 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count184
 ) (d:/Apps/texlive/2024/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
-(d:/Apps/texlive/2024/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(d:/Apps/texlive/2024/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@chapter=\count186
@@ -218,7 +218,7 @@ Package: fontspec-xetex 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (d:/Apps/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 176.
+(Font)              scaled to size 12.0pt on input line 176.
  (d:/Apps/texlive/2024/texmf-dist/tex/latex/ctex/ctex.sty
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
  (d:/Apps/texlive/2024/texmf-dist/tex/latex/ctex/ctexhook.sty
@@ -1276,7 +1276,7 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cfttabnumwidth=\skip141
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1331.
+(Font)              scaled to size 12.0pt on input line 1331.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -1341,12 +1341,12 @@ Package hyperref Info: Link coloring ON on input line 27.
 * \topmargin=-73.12352pt
 * \headheight=61.74242pt
 * \headsep=11.38109pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=34.1433pt
-* \marginparwidth=61.0pt
+* \marginparwidth=38.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1407,12 +1407,12 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 29.
 * \topmargin=-145.3935pt
 * \headheight=61.74242pt
 * \headsep=11.38109pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=34.1433pt
-* \marginparwidth=61.0pt
+* \marginparwidth=38.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1439,14 +1439,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 29.
+(Font)              scaled to size 17.28pt on input line 29.
  [1
 
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 32.
+(Font)              scaled to size 20.74pt on input line 32.
  (./elegantbook-cn.toc [1
 
 
@@ -1456,71 +1456,74 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 \openout8 = `elegantbook-cn.toc'.
 
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 34.
+(Font)              scaled to size 10.95pt on input line 34.
  [2]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 39.
+(Font)              scaled to size 8.0pt on input line 39.
 LaTeX Font Info:    Trying to load font information for U+ding on input line 39.
 (d:/Apps/texlive/2024/texmf-dist/tex/latex/bbding/Uding.fd
 File: Uding.fd 1996/02/01 v1.0 BBding font definitions
-)
+) [1
+
+
+]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 85.
- [1
-
-
-] [2]
+(Font)              scaled to size 14.4pt on input line 85.
+ [2] [3]
 Chapter 2.
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[3
+[4
 
 ]
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[4]
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 [5] [6]
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[7]
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[8] [9]
 Chapter 3.
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[7
-
-]
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[8]
-Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
-[9]
-Chapter 4.
 [10
 
-]
+] [11] [12]
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[13] [14]
+Chapter 4.
+[15
+
+] [16]
 Chapter 5.
-[11
+[17
 
 ]
 Chapter 6.
-[12
+[18
 
-]
-Overfull \hbox (25.55313pt too wide) in paragraph at lines 521--521
-[]\TU/lmtt/m/n/10 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"[] 
+] [19]
+Overfull \hbox (47.7831pt too wide) in paragraph at lines 563--563
+[]\TU/lmtt/m/n/12 $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] 
  []
 
 
-Overfull \hbox (36.05313pt too wide) in paragraph at lines 529--529
-[]\TU/lmtt/m/n/10 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin[] 
+Overfull \hbox (115.76309pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/12 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"[] 
  []
 
-[13] [14] (./elegantbook-cn.aux)
+
+Overfull \hbox (128.12308pt too wide) in paragraph at lines 572--572
+[]\TU/lmtt/m/n/12 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin[] 
+ []
+
+[20] (./elegantbook-cn.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1530,18 +1533,18 @@ L3 programming layer <2022/08/05>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 7AC4CF72EF6BE95485DF55E99F44479F;6992.
+(rerunfilecheck)             Checksum: C587B4AD87967FAA4FDB4BDC95D7487A;7206.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45843 strings out of 476615
- 990535 string characters out of 5796003
- 1976520 words of memory out of 5000000
- 67128 multiletter control sequences out of 15000+600000
- 563102 words of font info for 99 fonts, out of 8000000 for 9000
+ 45875 strings out of 476615
+ 991851 string characters out of 5796003
+ 1964790 words of memory out of 5000000
+ 67154 multiletter control sequences out of 15000+600000
+ 566047 words of font info for 109 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  103i,12n,108p,683b,1317s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on elegantbook-cn.pdf (17 pages).
+Output written on elegantbook-cn.pdf (23 pages).
