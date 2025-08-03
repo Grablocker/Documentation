@@ -1,0 +1,79 @@
+{
+  "hosts": [
+    {
+        "name": "jump-host",
+        "ip": "192.168.100.101",
+        "segment": "net-ext"
+    },
+    {
+        "name": "vpn-server",
+        "ip": "192.168.100.102",
+        "segment": "net-ext"
+    },
+        {
+        "name": "web-server",
+        "ip": "172.16.10.101",
+        "segment": "net-dmz"
+    },
+    {
+        "name": "mailserver",
+        "ip": "172.16.10.102",
+        "segment": "net-dmz"
+    },
+    {
+        "name": "db-server",
+        "ip": "172.16.20.102",
+        "segment": "net-int"
+    },
+    {
+        "name": "physical-host",
+        "ip": "127.0.0.1",
+        "segment": "net-mgmt"
+    }
+  ],
+
+  "forwarding_rules": [
+    {
+        "from": "net-dmz",
+        "to": "net-ext",
+        "protocol": "all",
+        "ports": "all"
+    },
+    {
+        "from": "net-ext",
+        "to": "net-dmz",
+        "protocol": "tcp",
+        "ports": [80, 443]
+    },
+    {
+        "from": "net-dmz",
+        "to": "net-int",
+        "protocol": "tcp",
+        "ports": [3306, 5432]
+    },
+    {
+        "from": "net-int",
+        "to": "net-ext",
+        "protocol": "all",
+        "ports": "all"
+    },
+    {
+        "from": "net-mgmt",
+        "to": "net-ext",
+        "protocol": "all",
+        "ports": [22]
+    },
+    {
+        "from": "net-mgmt",
+        "to": "net-dmz",
+        "protocol": "all",
+        "ports": [22]
+    },
+    {
+        "from": "net-mgmt",
+        "to": "net-int",
+        "protocol": "all",
+        "ports": [22]
+    }
+  ]
+}
