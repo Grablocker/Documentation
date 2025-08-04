@@ -42,9 +42,11 @@
 \contentsline {chapter}{\numberline {6}部署说明和注意事项}{19}{chapter.6}%
 \contentsline {section}{\numberline {6.1}开源项目地址}{19}{section.6.1}%
 \contentsline {section}{\numberline {6.2}宿主机部署前置工作}{19}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}操作系统选择与配置}{19}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.1}操作系统选择与配置}{20}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}KVM及其管理工具安装}{20}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Docker及Compose平台安装}{21}{subsection.6.2.3}%
 \contentsline {section}{\numberline {6.3}靶场部署}{22}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}跳板机}{22}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}靶场内网和虚拟主机}{22}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}攻防模块部署}{22}{section.6.4}%
 \contentsline {section}{\numberline {6.5}注意事项}{22}{section.6.5}%

@@ -1,6 +1,11 @@
 {
   "hosts": [
     {
+        "name": "user",
+        "ip": "152.16.10.101",
+        "segment": "out-routed"
+    },
+    {
         "name": "jump-host",
         "ip": "192.168.100.101",
         "segment": "net-ext"
@@ -33,6 +38,12 @@
   ],
 
   "forwarding_rules": [
+    {
+        "from": "out-routed",
+        "to": "net-ext",
+        "protocol": "all",
+        "ports": "all"
+    },
     {
         "from": "net-dmz",
         "to": "net-ext",
