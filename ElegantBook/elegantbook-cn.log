@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.8.4)  4 AUG 2025 19:02
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.8.4)  6 AUG 2025 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1380,8 +1380,9 @@ Package biblatex Info: Automatic encoding selection.
 \openout5 = `elegantbook-cn.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'elegantbook-cn.bbl' found.
- (./elegantbook-cn.bbl)
+Package biblatex Info: ... file 'elegantbook-cn.bbl' not found.
+
+No file elegantbook-cn.bbl.
 Package biblatex Info: Reference section=0 on input line 28.
 Package biblatex Info: Reference segment=0 on input line 28.
 \c@lstlisting=\count559
@@ -1423,7 +1424,7 @@ File: ./figure/cyber-4084719_1280.jpg Graphic file (type bmp)
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 24.88pt on input line 30.
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 30.
- (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
@@ -1436,7 +1437,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 30.
- [1
+
+Overfull \hbox (83.67082pt too wide) in paragraph at lines 30--30
+[] [] [] 
+ []
+
+[1
 
 
 
@@ -1447,13 +1453,14 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 
 
-])
+]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 59.
+ [2])
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
 
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 35.
- [2]
+ [3]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 40.
@@ -1466,50 +1473,59 @@ File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 14.4pt on input line 86.
- [2] [3]
+ [2] [3] [4]
 Chapter 2.
-[4
+[5
 
-] [5] [6]
+] [6] [7]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 282.
- [7] [8] [9] [10]
+(Font)              scaled to size 12.0pt on input line 260.
+ [8] [9]
+Missing character: There is no   (U+2009) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no   (U+2009) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no   (U+2009) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no   (U+2009) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
+[10] [11]
 Chapter 3.
-[11
+[12
 
-] [12]
-Overfull \hbox (5.01616pt too wide) in paragraph at lines 461--463
+] [13]
+Overfull \hbox (5.01616pt too wide) in paragraph at lines 444--446
 []\TU/FandolSong-Regular(0)/m/n/12 跨 宿 主 \TU/texgyretermes(0)/m/n/12 VXLAN/EVPN \TU/FandolSong-Regular(0)/m/n/12 扩 展 当 需 要 跨 机 房 或 多 宿 主 机 协 同 时，| \TU/texgyretermes(0)/m/n/12 Agent \TU/FandolSong-Regular(0)/m/n/12 可 在 现 有 \TU/texgyretermes(0)/m/n/12 Linux Bridge
  []
 
-[13] [14]
+[14] [15] [16]
 Chapter 4.
-[15
-
-] [16]
-Chapter 5.
 [17
 
-] [18]
-Chapter 6.
-[19
+]
+Chapter 5.
+[18
 
-] [20]
-Overfull \hbox (60.14308pt too wide) in paragraph at lines 678--678
+] [19]
+Chapter 6.
+[20
+
+] [21]
+Chapter 7.
+[22
+
+] [23]
+Overfull \hbox (60.14308pt too wide) in paragraph at lines 709--709
 []  \TU/lmtt/m/n/12 $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] 
  []
 
 
-Overfull \hbox (128.12308pt too wide) in paragraph at lines 679--679
+Overfull \hbox (128.12308pt too wide) in paragraph at lines 710--710
 []  \TU/lmtt/m/n/12 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"[] 
  []
 
 
-Overfull \hbox (128.12308pt too wide) in paragraph at lines 687--687
+Overfull \hbox (128.12308pt too wide) in paragraph at lines 718--718
 []\TU/lmtt/m/n/12 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin[] 
  []
 
-[21] [22] (./elegantbook-cn.aux)
+[24] [25] [26] [27] (./elegantbook-cn.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1519,18 +1535,18 @@ L3 programming layer <2022/08/05>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 768A31F27984BCEAC9F8BB334E303621;7800.
+(rerunfilecheck)             Checksum: 986818218015C0A9712AF8E923767229;10141.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45802 strings out of 474878
- 994691 string characters out of 5762517
- 1965376 words of memory out of 5000000
- 67084 multiletter control sequences out of 15000+600000
+ 45757 strings out of 474878
+ 991538 string characters out of 5762517
+ 1967877 words of memory out of 5000000
+ 67041 multiletter control sequences out of 15000+600000
  566023 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,108p,728b,1321s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on elegantbook-cn.pdf (25 pages).
+Output written on elegantbook-cn.pdf (31 pages).
