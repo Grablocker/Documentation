@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.8.4)  6 AUG 2025 10:40
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.8.4)  8 AUG 2025 10:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1490,42 +1490,42 @@ Chapter 3.
 [12
 
 ] [13]
-Overfull \hbox (5.01616pt too wide) in paragraph at lines 444--446
+Overfull \hbox (5.01616pt too wide) in paragraph at lines 468--470
 []\TU/FandolSong-Regular(0)/m/n/12 跨 宿 主 \TU/texgyretermes(0)/m/n/12 VXLAN/EVPN \TU/FandolSong-Regular(0)/m/n/12 扩 展 当 需 要 跨 机 房 或 多 宿 主 机 协 同 时，| \TU/texgyretermes(0)/m/n/12 Agent \TU/FandolSong-Regular(0)/m/n/12 可 在 现 有 \TU/texgyretermes(0)/m/n/12 Linux Bridge
  []
 
-[14] [15] [16]
+[14] [15] [16] [17]
 Chapter 4.
-[17
+[18
 
 ]
 Chapter 5.
-[18
+[19
 
-] [19]
+] [20]
 Chapter 6.
-[20
+[21
 
-] [21]
+] [22]
 Chapter 7.
-[22
+[23
 
-] [23]
-Overfull \hbox (60.14308pt too wide) in paragraph at lines 709--709
+] [24]
+Overfull \hbox (60.14308pt too wide) in paragraph at lines 763--763
 []  \TU/lmtt/m/n/12 $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] 
  []
 
 
-Overfull \hbox (128.12308pt too wide) in paragraph at lines 710--710
+Overfull \hbox (128.12308pt too wide) in paragraph at lines 764--764
 []  \TU/lmtt/m/n/12 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"[] 
  []
 
 
-Overfull \hbox (128.12308pt too wide) in paragraph at lines 718--718
+Overfull \hbox (128.12308pt too wide) in paragraph at lines 772--772
 []\TU/lmtt/m/n/12 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin[] 
  []
 
-[24] [25] [26] [27] (./elegantbook-cn.aux)
+[25] [26] [27] [28] (./elegantbook-cn.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1535,18 +1535,18 @@ L3 programming layer <2022/08/05>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 986818218015C0A9712AF8E923767229;10141.
+(rerunfilecheck)             Checksum: D93568C9D016BA51EBEF75C5D87CFDA4;10824.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45757 strings out of 474878
- 991538 string characters out of 5762517
- 1967877 words of memory out of 5000000
- 67041 multiletter control sequences out of 15000+600000
+ 45758 strings out of 474878
+ 991551 string characters out of 5762517
+ 1969599 words of memory out of 5000000
+ 67042 multiletter control sequences out of 15000+600000
  566023 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,108p,728b,1321s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on elegantbook-cn.pdf (31 pages).
+Output written on elegantbook-cn.pdf (32 pages).
