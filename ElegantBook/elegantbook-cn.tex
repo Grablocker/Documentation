@@ -8,7 +8,6 @@
 \institute{武汉大学 国家网络安全学院}
 \date{2025年8月14日}
 
-% \extrainfo{不要以为抹消过去，重新来过，即可发生什么改变。—— 比企谷八幡}
 
 \setcounter{tocdepth}{3}
 
@@ -23,6 +22,21 @@
 \usepackage{hyperref}
 \usepackage{tcolorbox}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+\usepackage{listings}
+\usepackage{xcolor} % 支持颜色
+
+\lstset{
+    basicstyle=\ttfamily\small,  % 等宽字体，字号
+    backgroundcolor=\color{gray!10}, % 浅灰背景
+    frame=single,                % 单线边框
+    rulecolor=\color{black!30},  % 边框颜色
+    breaklines=true,             % 自动换行
+    postbreak=\mbox{$\hookrightarrow$}, % 换行标记
+    keywordstyle=\color{blue},   % 关键字高亮
+    commentstyle=\color{green!50!black}, % 注释颜色
+    stringstyle=\color{red},     % 字符串颜色
+    showstringspaces=false       % 不显示字符串中的空格
+}
 
 % 修改标题页的橙色带
 \definecolor{customcolor}{RGB}{7,8,8}
@@ -399,14 +413,14 @@ Agent 在工作目录中保留若干 Few-Shot 模板，负责动态填充网段�
 先通过 Docker 创建各业务分区的虚拟网络（比如 `docker-dmz`），
 再在 Libvirt 的 XML 定义中以桥接模式引用该接口。示例配置如下：
 
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
 <network>
   <name>net-dmz</name>
   <uuid>0ff96ab1-c763-4bd1-8ebf-446de0d4fdf4</uuid>
   <forward mode="bridge"/>
   <bridge name="docker-dmz"/>
 </network>
-\end{verbatim}
+\end{lstlisting}
 
 该方式使得 `net-dmz` 网段既由 Libvirt 管理，具备统一的网关地址和 DHCP 服务，又直接承载在 Docker 网络之上，
 实现了 VM 与容器在同一子网内的地址分配与流量互通。在需要新增其他安全域时，
@@ -425,7 +439,9 @@ Agent 在工作目录中保留若干 Few-Shot 模板，负责动态填充网段�
 
 \begin{tcolorbox}[colframe=black!30!red, colback=red!5!white, title=注意]
 
-  iptables只是兼容层转发管理机制，如果启用了源生规则，iptables将被屏蔽。
+iptables只是兼容层转发管理机制，如果启用了源生规则，iptables将被屏蔽。
+故使用iptables时需要排除源生规则影响。排除方法在
+\hyperlink{subsec:forward_setting}{文档末尾的注意事项}。
 
 若需要更高效或更复杂的转发管理，可以使用机器本身的原生规则，
 如nftables和ebtables等进行配置。在自动化部署过程中，
@@ -690,8 +706,8 @@ Agent 在执行攻防操作时实时调用内置决策模型，根据当前网�
 
 
 
-\hypertarget{chap:deploy}{}
 \chapter{部署说明和注意事项}
+\hypertarget{chap:deploy}{}
 
 \begin{introduction}
     \item 开源项目地址
@@ -708,7 +724,7 @@ Agent 在执行攻防操作时实时调用内置决策模型，根据当前网�
 
 我们基于开源框架而修改的，用于靶场攻防和评测的Agent客户端代码：
 
-\href{https://github.com/Grablocker/Pentest-Gemini.git}{https://github.com/Grablocker/Pentest-Gemini.git}
+\href{https://github.com/Grablocker/Agent4range}{https://github.com/Grablocker/Agent4range}
 
 我们采用的跳板机的地址（下载器）：
 \href{https://github.com/Nyr/openvpn-install/}{https://github.com/Nyr/openvpn-install/}
@@ -743,9 +759,9 @@ Agent 在执行攻防操作时实时调用内置决策模型，根据当前网�
 宿主机推荐安装Ubuntu Server的长期支持版本，例如Ubuntu 20.04或24.04，该系统对KVM与Docker支持良好，并拥有活跃的社区生态和丰富的文档资源。在部署前需检查并启用CPU的硬件虚拟化功能，可通过如下命令进行确认：
 
 
-\begin{verbatim}
-  $ lscpu | grep -E 'vmx|svm'
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  lscpu | grep -E 'vmx|svm'
+\end{lstlisting}
 
 若输出结果中包含“vmx”或“svm”，则说明虚拟化功能已被CPU支持。如未显示，则需进入BIOS或UEFI设置手动开启虚拟化选项。
 
@@ -755,32 +771,32 @@ KVM是基于Linux内核的虚拟化机制，可将宿主机作为裸机虚拟化
 
 安装KVM及相关软件包：
 
-\begin{verbatim}
-  $ sudo apt update
-  $ sudo apt -y install bridge-utils cpu-checker libvirt-clients 
-  $ sudo apt -y install libvirt-daemon qemu qemu-kvm virt-manager
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo apt update
+  sudo apt -y install bridge-utils cpu-checker libvirt-clients 
+  sudo apt -y install libvirt-daemon qemu qemu-kvm virt-manager
+\end{lstlisting}
 
 添加当前用户至libvirt与kvm用户组以获得管理权限：
 
-\begin{verbatim}
-  $ sudo usermod -aG libvirt $USER
-  $ sudo usermod -aG kvm $USER
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo usermod -aG libvirt $USER
+  sudo usermod -aG kvm $USER
+\end{lstlisting}
 
 验证KVM模块是否加载成功：
 
-\begin{verbatim}
-  $ kvm-ok
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  kvm-ok
+\end{lstlisting}
 
 若输出显示/dev/kvm存在并支持加速，即说明KVM功能正常。
 
 启动并设定libvirtd服务为开机自启：
 
-\begin{verbatim}
-  $ sudo systemctl enable --now libvirtd
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo systemctl enable --now libvirtd
+\end{lstlisting}
 
 Libvirt可用于创建虚拟网络、自动配置网桥与DHCP服务，并设置iptables规则，为后续部署多网段靶场提供良好的支持基础。
 
@@ -790,45 +806,45 @@ Docker平台将在靶场中承担Web服务、邮件系统、数据库与监控�
 
 安装基础依赖：
 
-\begin{verbatim}
-  $ sudo apt update
-  $ sudo apt install ca-certificates curl gnupg
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo apt update
+  sudo apt install ca-certificates curl gnupg
+\end{lstlisting}
 
 添加Docker官方GPG密钥：
 
-\begin{verbatim}
-  $ sudo install -m 0755 -d /etc/apt/keyrings
-  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg
-  $ sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+\end{lstlisting}
 
 配置Docker软件源：
 
-\begin{verbatim}
-  $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg]
+\begin{lstlisting}[language=bash]
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg]
   https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable"
   | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-\end{verbatim}
+\end{lstlisting}
 
 安装Docker及其组件：
 
-\begin{verbatim}
-  $ sudo apt update
-$ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+\end{lstlisting}
 
 添加用户至docker用户组：
 
-\begin{verbatim}
-  $ sudo usermod -aG docker $USER
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  sudo usermod -aG docker $USER
+\end{lstlisting}
 
 完成安装后，可通过运行测试容器确认安装状态：
 
-\begin{verbatim}
-  $ docker run hello-world
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+  docker run hello-world
+\end{lstlisting}
 
 若成功输出欢迎信息，说明Docker平台已正确配置完成。
 
@@ -871,32 +887,32 @@ Agent会自动生成对应的Docker容器，并配置好网络桥接和网段转
 \section{前端部署}
 
 首先，通过 Git 克隆项目到本地工作目录：
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
   git clone https://github.com/din0sauria/smart_range.git
   cd smart_range
-\end{verbatim}
+\end{lstlisting}
 
 推荐使用 VSCode 作为主要编辑器，并安装 Volar 插件来替代 Vetur，以获得对 Vue 3 和 TypeScript 更精准的语法提示与类型检查。
 
 进入项目根目录后，执行以下命令安装所有前端依赖：
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
   npm install
-\end{verbatim}
+\end{lstlisting}
 
 在开发过程中，可以使用热重载功能快速预览修改效果：
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
   npm run dev
-\end{verbatim}
+\end{lstlisting}
 
 完成开发并准备发布时，运行以下命令对项目进行构建和压缩，生成面向生产环境的静态资源：
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
   npm run build
-\end{verbatim}
+\end{lstlisting}
 
 若需启用页面中的虚拟终端功能，请在独立终端中启动后端服务：
-\begin{verbatim}
+\begin{lstlisting}[language=bash]
   python testvtcmd.py
-\end{verbatim}
+\end{lstlisting}
 
 
 
@@ -914,7 +930,21 @@ Windows 安装过程将无法识别底层虚拟磁盘及网络接口，此时应
 
 另外一个方法就是从直接\textbf{QEMU启动}virtio不兼容的VM机器。为此我们试验了可行性。
 
+
 \subsection{转发规则兼容性设置}
+
+\hypertarget{subsec:forward_setting}{当评委老师或客户确有需要时}，
+为了确保靶场环境中的网络转发规则能够运行\textbf{兼容层转发规则}管理工具，
+请执行下面的这一组命令以排除源生规则对网段级别转发的干扰。
+
+
+\begin{lstlisting}[language=bash]
+  sudo ufw disable || true
+  sudo nft list ruleset > /tmp/nft.backup 2>/dev/null || true
+  sudo nft flush ruleset || true
+  sudo ebtables -F || true
+  sudo ebtables -t broute -F || true
+\end{lstlisting}
 
 \subsection{Vue 开发环境配置}
 在构建基于 Vue 的前端项目时，推荐在 VSCode 中\textbf{使用 Volar} 作为主要语言服务插件，
