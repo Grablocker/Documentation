@@ -57,6 +57,13 @@
 的背景下，深刻认识和有力防范网络安全风险，切实维护网络空间安全，已成为事关全局的重大课
 题。
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{cybersecurity.png}  % 将路径替换为图片的路径
+\caption{网络安全}  % 图片的标题，可编辑
+\label{fig:网络安全}  % 标签，用于引用
+\end{figure}
+
 随着《网络安全法》和《国家网络空间安全战略》的深入推进，
 实战化网络攻防能力的建设成为网络安全体系中的关键任务之一，
 尤其在“十五五”规划对关键信息基础设施安全防护提出更高要求的背景下，
@@ -117,6 +124,13 @@ Docker是一种\textbf{轻量级}虚拟化技术，
 在靶场环境中，Docker通常用于承载Web服务、数据库、日志分析平台等高频变化的组件，
 通过Docker Compose工具可实现多容器服务的集中编排，提升整体自动化部署水平。
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{mv_and_docker.png}  % 将路径替换为图片的路径
+\caption{虚拟机和容器示意图}  % 图片的标题，可编辑
+\label{fig:vm_and_docker}  % 标签，用于引用
+\end{figure}
+
 \subsection{virsh与libvirt虚拟化管理工具}
 在本项目中，virsh作为底层虚拟化管理的核心引擎，为靶场环境提供一致、可重复的虚拟机与网络资源创建能力。
 借助Libvirt的XML描述语言，用户可以精确地定义每台虚拟机的\textbf{CPU、内存、磁盘以及网络接口参数}，
@@ -174,6 +188,13 @@ AI Agent是一种具备感知、决策与执行能力的自主体，
 多模态输入解析能力和代码生成能力，完成对渗透链条的智能模拟与自动攻击脚本的生成，
 探索了基于大模型驱动的Agent在靶场环境中的实战应用潜力。
 另外，我们还对整体框架进行修改编辑，生成\textbf{Agent log}使其行为可以被追踪和审计。
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{agent_attack.png}  % 将路径替换为图片的路径
+\caption{AI Agent示意图}  % 图片的标题，可编辑
+\label{fig:ai_agent}  % 标签，用于引用
+\end{figure}
 
 \section{专家评审部署指南}
 
@@ -254,6 +275,13 @@ KVM虚拟化技术为需要独立操作系统环境的资产（如办公终端�
 包括网络段的动态生成、iptables转发规则的自动创建、
 以及Docker容器的自动拉取和配置。该自动化系统能够根据需求灵活调整网络拓扑、转发规则，
 并确保快速、高效的容器和虚拟机部署，减少了人工干预和部署时间，进一步提升了靶场环境的适应性和可扩展性。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{cyber_range_front.png}  % 将路径替换为图片的路径
+\caption{靶场前端展示}  % 图片的标题，可编辑
+\label{fig:front}  % 标签，用于引用
+\end{figure}
 
 \begin{definition}
     靶场基础设施设计方案通过结合KVM虚拟化和Docker容器技术，采用AI驱动的自动化配置管理，
@@ -465,6 +493,13 @@ Agent 接收模板后，调用内置的语义解析模块将“允许 DMZ→内�
 
 通过这种自动化流程，常规漏洞的复现和演练可在分钟级完成，不仅验证了漏洞利用链的完整性，也为评测团队提供了详尽的操作记录。
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{exploit_db.png}  % 将路径替换为图片的路径
+\caption{ExploitDB数据库}  % 图片的标题，可编辑
+\label{fig:ExploitDB}  % 标签，用于引用
+\end{figure}
+
 \subsection{模糊测试挖掘和异常检测}
 
 针对零日或未知漏洞，我们在 Agent 中集成了多种 Fuzzing 插件，包括\textbf{协议模糊、文件格式模糊和 API 参数模糊}。Agent 在演练开始时，基于资产清单自动选择合适的 Fuzzer，并生成变异输入流发往目标服务。实时监控模块通过 eBPF 或动态插桩技术捕获目标进程的崩溃信息、异常日志和内存访问违规。典型流程如下：
@@ -574,7 +609,12 @@ Agent 可根据演练场景动态生成或更新虚拟网络定义和防火墙�
 所有日志条目采用异步写入与批量推送相结合的方式，既保证了对大规模并发命令的支持，也避免了性能瓶颈
 。日志数据上报后，Agent 可在多轮交互中对历史行为进行回溯，并在 LLM 的推理能力加持下自主优化下一步攻击路径。
 该机制不仅能全面揭示靶场内潜在风险点，还为后续的防御策略评估和改进提供了可度量、可对比的行为基准。
-
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{gemini_cli.png}  % 将路径替换为图片的路径
+\caption{利用Gemini CLI进行自主操作}  % 图片的标题，可编辑
+\label{fig:Gemini}  % 标签，用于引用
+\end{figure}
 \section{攻防决策与评估一体化}  
 攻防演练与效果评估向来是割裂的两端，本项目则通过 LLM Agent 实现二者的无缝融合。
 Agent 在执行攻防操作时实时调用内置决策模型，根据当前网络态势和历史日志动态生成下一步行动；
