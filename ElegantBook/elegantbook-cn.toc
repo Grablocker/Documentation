@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {2.2}靶场基础设施设计方案}{7}{section.2.2}%
 \contentsline {section}{\numberline {2.3}攻击模块设计方案}{8}{section.2.3}%
 \contentsline {section}{\numberline {2.4}防御模块设计方案}{9}{section.2.4}%
-\contentsline {section}{\numberline {2.5}评价模块设计方案}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.5}评价模块设计方案}{10}{section.2.5}%
 \contentsline {chapter}{\numberline {3}方案实现}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}靶场环境构建方案及其自动化、参数调整}{11}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}主机层}{11}{subsection.3.1.1}%
@@ -28,16 +28,16 @@
 \contentsline {subsection}{\numberline {3.2.3}模糊测试挖掘和异常检测}{15}{subsection.3.2.3}%
 \contentsline {section}{\numberline {3.3}防御模块实现}{15}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}自动漏洞修复与版本升级}{15}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}实时威胁阻断}{15}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.2}实时威胁阻断}{16}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}闭环反馈与策略优化}{16}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}评估模块实现}{16}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Agent 行为捕获与日志生成}{16}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}日志结构解析与图示说明}{16}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}JSON 化处理与前端交付}{16}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.2}日志结构解析与图示说明}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}JSON 化处理与前端交付}{17}{subsection.3.4.3}%
 \contentsline {section}{\numberline {3.5}前端展示设置与实现}{17}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}靶场项目内容介绍}{17}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}靶场攻防态势展示}{17}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}靶场拓扑结构展示}{17}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.3}靶场拓扑结构展示}{18}{subsection.3.5.3}%
 \contentsline {subsection}{\numberline {3.5.4}虚拟终端}{18}{subsection.3.5.4}%
 \contentsline {chapter}{\numberline {4}效果演示}{19}{chapter.4}%
 \contentsline {chapter}{\numberline {5}创新与特色}{20}{chapter.5}%
