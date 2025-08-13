@@ -504,17 +504,27 @@ Agent 接收模板后，调用内置的语义解析模块将“允许 DMZ→内�
 
 上述扩展策略既保留了模板化和声明式的高层管理方式，又可无缝接入新技术栈与云平台，确保靶场环境可随需求增长而弹性伸缩。
 
-
-
-
 \section{攻击模块实现}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{agent.png}  % 将路径替换为图片的路径
+\caption{攻防Agent示意图}  % 图片的标题，可编辑
+\label{fig:agent}  % 标签，用于引用
+\end{figure}
+
 \subsection{架构概述}
 本攻击模块基于开源的 \textbf{Gemini CLI Agent} 框架，在原有流程之上引入多项扩展，以满足智能化攻击模拟需求。
 核心组件包括：攻击决策引擎、漏洞与利用库接口、攻击执行器以及行为日志模块。Agent 在初始化时加载各功能插件，
 形成从“策略决策→漏洞检索→利用执行→结果反馈”的闭环。
 
 \subsection{对常规漏洞的复现及演练}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{attack.png}  % 将路径替换为图片的路径
+\caption{n-day攻击示意图}  % 图片的标题，可编辑
+\label{fig:n-day}  % 标签，用于引用
+\end{figure}
 在常规漏洞演练中，Agent 首先对目标服务进行指纹识别，
 并将服务版本信息与本地集成的 \textbf{ExploitDB、Metasploit 攻防数据库}进行匹配检索。
 匹配结果按风险评分和可用性排序后，Agent 自动下载或调用对应的 EXP 脚本，
@@ -593,6 +603,12 @@ Fuzzing 引擎并行输出多路变异样本，按优先级向目标发起请求
 便于前端组件在可视化大屏中快速渲染行为流。前端在接收到该数据后，
 动态展示 Agent 在靶场中执行的每一步操作，结合评估模块提供的安全得分，实现从日志解析到可视化反馈的全流程闭环。
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{evaluate.png}  % 将路径替换为图片的路径
+\caption{评估模块示意图}  % 图片的标题，可编辑
+\label{fig:evaluate}  % 标签，用于引用
+\end{figure}
 
 \section{前端展示设置与实现}
 
