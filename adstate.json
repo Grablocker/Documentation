@@ -1,0 +1,31 @@
+{
+  "Database": {
+    "Date": "2025年7月31日",
+    "Total_Vulns": "180000+",
+    "With_EXP": 46406,
+    "Local_Escalation": 4836,
+    "Remote_Exploits": 6840,
+    "Web_Vulns": 27247
+  },
+  "Range": {
+    "Hosts": 4,
+    "Exploits_Found": 12,
+    "Blocked_Instrs": 6
+  },
+  "Vulns": {
+    "Titles": [
+      "cPanel 10.8.x - cpwrap via MySQLAdmin Privilege Escalation",
+      "MySQL (Linux) - Database Privilege Escalation",
+      "MySQL / MariaDB / PerconaDB 5.5.51/5.6.32/5.7.14 - Code Execution / Privilege Escalat",
+      "MySQL / MariaDB / PerconaDB 5.5.x/5.6.x/5.7.x - 'mysql' System User Privilege Escalat",
+      "MySQL / MariaDB / PerconaDB 5.5.x/5.6.x/5.7.x - 'root' System User Privilege Escalati",
+      "MySQL 3.23.x - 'mysqld' Local Privilege Escalation",
+      "MySQL User-Defined (Linux) (x86) - 'sys_exec' Local Privilege Escalation",
+      "MySQL User-Defined (Linux) x32 / x86_64 - 'sys_exec' Local Privilege Escalation (2)",
+      "ThinkPHP - Multiple PHP Injection RCEs (Metasploit)",
+      "ThinkPHP 2.0 - 'index.php' Cross-Site Scripting",
+      "ThinkPHP 5.0.23/5.1.31 - Remote Code Execution",
+      "ThinkPHP 5.X - Remote Command Execution"
+    ]
+  }
+}
