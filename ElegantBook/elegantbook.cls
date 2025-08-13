@@ -9,7 +9,7 @@
 % % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{elegantbook}[2022/04/09 v4.3 ElegantBook document class]
-
+\usepackage{float}
 
 %%%
 \RequirePackage{kvoptions}
